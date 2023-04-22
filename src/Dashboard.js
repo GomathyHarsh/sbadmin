@@ -1,6 +1,26 @@
 import React from 'react'
 import Card from './Card'
+import { useState } from 'react';
 function Dashboard() {
+  const [datas,setDatas]=useState([
+    {
+      id:1,
+      value:40000
+    },
+    {
+      id:2,
+      value:60000
+    },
+    {
+      id:3,
+      value:35000
+    },
+    {
+      id:4,
+      value:80000
+    }
+
+]);
   return (
     <div class="container-fluid">
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -9,10 +29,11 @@ function Dashboard() {
                                 class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
                     </div>
                     <div class="row">
-                    <Card/>
-                    <Card/>
-                    <Card/>
-                    <Card/>
+                    {
+              datas.map((data)=>{
+                return <Card value={data.value} />
+              })
+            }
                     </div>
 
       
